@@ -7,7 +7,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.form-container{
+  margin: 20px 20px 0;
+}
+
+.field-block{
+  margin-top: 20px;
+  display: flex;
+}
+.field-block .field-label{
+  width: 50%;
+}
+.center{
+  text-align: center;
+}
+.inline-flex{
+  display: inline-flex;
+}
+
+input[type=text], input[type=password]{
+  border: none;
+  box-shadow: 0px 0px 5px #ccc inset;
+  padding: 10px 5px;
+  border-radius: 3px;
+}
+.field-error{
+  box-shadow: 0px 0px 5px red inset !important;
+}
+.pointer{
+  cursor: pointer;
 }
