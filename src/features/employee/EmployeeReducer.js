@@ -1,16 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const initialState = [
-                        {firstName: "Prem", lastName: "Kumar", username: "premkumar", password: "", emailId: "prem.kumar@gmail.com", role: "Technical Lead", location: "Chennai", isActive: true},
-                        {firstName: "Ravi", lastName: "Kumar", username: "ravikumar", password: "", emailId: "ravi.kumar@gmail.com", role: "CEO", location: "Chennai", isActive: true},
-                        {firstName: "Selva", lastName: "Kumar", username: "selvakumar", password: "", emailId: "selva.kumar@gmail.com", role: "Associate", location: "Bangalore", isActive: true},
-                        {firstName: "Prakash", lastName: "Raj", username: "prakashraj", password: "", emailId: "prakash.raj@gmail.com", role: "Software Engineer", location: "Hyderabad", isActive: true},
-                     ];
+const initialState = [];
 
 const employeeReducer = createSlice({
     name: 'employee',
     initialState,
     reducers: {
+        fetchEmployee: (state, action) => {
+            //state.concat([...action.payload]);
+            if(state.length === 0) state.push(...action.payload)
+            console.log('trrrr', state);
+        },
         updateEmployee: (state, action) => {
             const {index, data} = action.payload;
             if(index !== undefined) state.splice(index, 1, data);
@@ -22,9 +22,10 @@ const employeeReducer = createSlice({
     },
 });
 
-export const {updateEmployee, deleteEmployee} = employeeReducer.actions;
+export const {updateEmployee, deleteEmployee, fetchEmployee} = employeeReducer.actions;
 
 export const selectEmployee = (state) => {
+    console.log('rediii', state);
     return state.employee;
 }
 

@@ -18,14 +18,11 @@ const CreateEmployee = (props) => {
     });
     const [updateIndex, setUpdateIndex] = useState();
     const [currentEmployee, setEmployee] = useState({
-        firstName: {value: "", isRequired: true, isError: false, includeForSave: true},
-        lastName: {value: "", isRequired: true, isError: false, includeForSave: true},
+        named: {value: "", isRequired: true, isError: false, includeForSave: true},
         username: {value: "", isRequired: true, isError: false, includeForSave: true},
         password: {value: "", isRequired: true, isError: false, includeForSave: true},
         confirmPassword: {value: "", isRequired: true, isError: false},
-        emailId: {value: "", isRequired: true, isError: false, includeForSave: true},
-        role: {value: "", isRequired: true, isError: false, includeForSave: true},
-        location: {value: "", isRequired: true, isError: false, includeForSave: true},
+        email: {value: "", isRequired: true, isError: false, includeForSave: true},
         isActive: {value: true, isRequired: false, isError: false, includeForSave: true}
     });
 
@@ -43,7 +40,7 @@ const CreateEmployee = (props) => {
     }, []);
 
     const onResetEmployee = () => {
-        setEmployee(EmployeeUpdateMapper({...currentEmployee}, {firstName: "", lastName: "", username: "", password: "", emailId: "", role: "", location: "", isActive: true}));
+        setEmployee(EmployeeUpdateMapper({...currentEmployee}, {named: "", lastName: "", username: "", password: "", emailId: "", role: "", location: "", isActive: true}));
     }
 
     const onEmployeeAdd = () => {
@@ -90,11 +87,7 @@ const CreateEmployee = (props) => {
     return <div className="form-container">
         <div className="field-block">
             <lable className="field-label"> First Name</lable>
-            <input className={`field-option ${currentEmployee.firstName.isError?"field-error":""}`} id="firstname" type={"text"} value={currentEmployee.firstName.value} onChange={e=>onInputChange(e, "firstName")}/>
-        </div>
-        <div className="field-block">
-            <lable className="field-label"> Last Name</lable>
-            <input className={`field-option ${currentEmployee.lastName.isError?"field-error":""}`} id="lastname" type={"text"} value={currentEmployee.lastName.value} onChange={e=>onInputChange(e, "lastName")}/>
+            <input id="named" type={"text"} value={currentEmployee.named.value} onChange={e=>onInputChange(e, "named")}/>
         </div>
         <div className="field-block">
             <lable className="field-label"> Username</lable>
@@ -110,16 +103,9 @@ const CreateEmployee = (props) => {
         </div>
         <div className="field-block">
             <lable className="field-label"> Email Address</lable>
-            <input className={`field-option ${currentEmployee.emailId.isError?"field-error":""}`} id="emailid" type={"text"} value={currentEmployee.emailId.value} onChange={e=>onInputChange(e, "emailId")}/>
+            <input className={`field-option ${currentEmployee.email.isError?"field-error":""}`} id="emailid" type={"text"} value={currentEmployee.email.value} onChange={e=>onInputChange(e, "email")}/>
         </div>
-        <div className="field-block">
-            <lable className="field-label"> Role/Designation</lable>
-            <input className={`field-option ${currentEmployee.role.isError?"field-error":""}`} id="role" type={"text"} value={currentEmployee.role.value} onChange={e=>onInputChange(e, "role")}/>
-        </div>
-        <div className="field-block">
-            <lable className="field-label"> Location</lable>
-            <input className={`field-option ${currentEmployee.location.isError?"field-error":""}`} id="location" type={"text"} value={currentEmployee.location.value} onChange={e=>onInputChange(e, "location")}/>
-        </div>
+        
         <div className="field-block">
             <lable className="field-label"> Active</lable>
             <Checkbox checked={currentEmployee.isActive.value} id="isactive" onChange={e=>onInputChange(e, "isActive")}/>

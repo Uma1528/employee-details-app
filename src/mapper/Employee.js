@@ -1,26 +1,19 @@
 export const EmployeeSaveMapper = (requestData) => {
     return {
-        firstName: requestData.firstName.value, 
-        lastName: requestData.lastName.value, 
+        named: requestData.named.value,
         username: requestData.username.value, 
         password: requestData.password.value, 
-        emailId: requestData.emailId.value, 
-        role: requestData.role.value, 
-        location: requestData.location.value, 
+        email: requestData.email.value,
         isActive: requestData.isActive.value
     }
 }
 
 export const EmployeeUpdateMapper = (destEmployeeData, sourceEmployeeData) => {
-    destEmployeeData.firstName.value = sourceEmployeeData.firstName;
-    destEmployeeData.lastName.value = sourceEmployeeData.lastName;
+    destEmployeeData.named.value = sourceEmployeeData.named;
     destEmployeeData.username.value = sourceEmployeeData.username;
     destEmployeeData.password.value = sourceEmployeeData.password;
     destEmployeeData.confirmPassword.value = sourceEmployeeData.password;
-    destEmployeeData.emailId.value = sourceEmployeeData.emailId;
-    destEmployeeData.role.value = sourceEmployeeData.role;
-    destEmployeeData.location.value = sourceEmployeeData.location;
-    destEmployeeData.isActive.value = sourceEmployeeData.isActive;
+    destEmployeeData.email.value = sourceEmployeeData.email;
     return destEmployeeData;
 }
 
