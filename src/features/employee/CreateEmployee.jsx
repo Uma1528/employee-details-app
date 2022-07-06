@@ -18,11 +18,12 @@ const CreateEmployee = (props) => {
     });
     const [updateIndex, setUpdateIndex] = useState();
     const [currentEmployee, setEmployee] = useState({
-        named: {value: "", isRequired: true, isError: false, includeForSave: true},
+        name: {value: "", isRequired: true, isError: false, includeForSave: true},
         username: {value: "", isRequired: true, isError: false, includeForSave: true},
         password: {value: "", isRequired: true, isError: false, includeForSave: true},
         confirmPassword: {value: "", isRequired: true, isError: false},
         email: {value: "", isRequired: true, isError: false, includeForSave: true},
+        phone: {value: "", isRequired: true, isError: false, includeForSave: true},
         isActive: {value: true, isRequired: false, isError: false, includeForSave: true}
     });
 
@@ -40,7 +41,7 @@ const CreateEmployee = (props) => {
     }, []);
 
     const onResetEmployee = () => {
-        setEmployee(EmployeeUpdateMapper({...currentEmployee}, {named: "", lastName: "", username: "", password: "", emailId: "", role: "", location: "", isActive: true}));
+        setEmployee(EmployeeUpdateMapper({...currentEmployee}, {named: "", username: "", password: "", emailId: "", role: "", location: "", isActive: true}));
     }
 
     const onEmployeeAdd = () => {
@@ -87,7 +88,7 @@ const CreateEmployee = (props) => {
     return <div className="form-container">
         <div className="field-block">
             <lable className="field-label"> First Name</lable>
-            <input id="named" type={"text"} value={currentEmployee.named.value} onChange={e=>onInputChange(e, "named")}/>
+            <input id="name" type={"text"} value={currentEmployee.name.value} onChange={e=>onInputChange(e, "name")}/>
         </div>
         <div className="field-block">
             <lable className="field-label"> Username</lable>
